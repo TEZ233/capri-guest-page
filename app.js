@@ -9,7 +9,15 @@
     return MONTHS[Number(m[2]) - 1] + " " + Number(m[3]);
   }
 
-  function fill(card, entry) {
+  var STALE_DAYS = 14;
+
+  // The Pi re-publishes at least weekly, so an old `updated` means it has stopped
+  function publishingStopped(doc) {
+    var t = Date.parse(doc && doc.updated);
+    return !isFinite(t) || Date.now() - t > STALE_DAYS * 86400000;
+  }
+
+  function fill(card, entry, stopped) {
     var price = card.querySelector("[data-role=price]");
     var detail = card.querySelector("[data-role=detail]");
     var link = card.querySelector("[data-role=link]");
@@ -20,21 +28,26 @@
     }
     var ok = typeof entry.price === "number" && isFinite(entry.price) && entry.price > 0;
     if (!ok || (entry.status !== "fresh" && entry.status !== "stale")) return;
+    // An out-of-date fare is never shown as a number: send guests to live prices
+    if (stopped || entry.status === "stale") {
+      detail.textContent = "Prices not updated recently";
+      return;
+    }
     price.textContent = "$" + Math.round(entry.price).toLocaleString("en-US");
     var bits = [];
     if (entry.origin) bits.push("from " + entry.origin);
     if (shortDate(entry.depart)) bits.push("departing " + shortDate(entry.depart));
     if (shortDate(entry.found_at)) bits.push("seen " + shortDate(entry.found_at));
-    detail.textContent = bits.join(" · ") +
-      (entry.status === "stale" ? " · prices not updated recently" : "");
+    detail.textContent = bits.join(" · ");
   }
 
   fetch("fares.json", { cache: "no-cache" })
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (doc) {
       var dests = doc && typeof doc.destinations === "object" ? doc.destinations : {};
+      var stopped = publishingStopped(doc);
       document.querySelectorAll(".card[data-dest]").forEach(function (card) {
-        fill(card, dests[card.getAttribute("data-dest")]);
+        fill(card, dests[card.getAttribute("data-dest")], stopped);
       });
     })
     .catch(function () { /* keep the "Check live prices" defaults */ });
