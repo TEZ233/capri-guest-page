@@ -1,0 +1,21 @@
+{
+  "updated": "2026-10-23T16:00",
+  "destinations": {
+    "NAP": {
+      "status": "none",
+      "origin": null,
+      "price": null,
+      "depart": null,
+      "found_at": null,
+      "search_url": "https://www.google.com/travel/flights?q=Flights%20to%20NAP%20from%20FSD%20on%202027-09-17%20through%202027-09-25"
+    },
+    "FCO": {
+      "status": "none",
+      "origin": null,
+      "price": null,
+      "depart": null,
+      "found_at": null,
+      "search_url": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20FSD%20on%202027-09-17%20through%202027-09-25"
+    }
+  }
+}
