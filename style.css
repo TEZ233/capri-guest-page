@@ -1,12 +1,10 @@
 :root {
-  --paper: #f7f4ee; --card: #fffdf9; --ink: #1e1b16; --soft: #6f675a;
-  --line: #d9d2c4; --accent: #7d5a3c; --accent-ink: #fffdf9;
+  /* warm bone / beige, the same in light and dark browsers */
+  --paper: #efe7d6; --card: #f7f1e4; --ink: #2a251c; --soft: #6b6252;
+  --line: #d3c8b0; --accent: #7d5a3c; --accent-ink: #faf5ea;
   --serif: "EB Garamond", Garamond, Georgia, "Times New Roman", serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root { --paper: #16140f; --card: #201d17; --ink: #efe9dd; --soft: #a79c8a;
-          --line: #3a352b; --accent: #d9b48a; --accent-ink: #16140f; }
+  color-scheme: light;
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
