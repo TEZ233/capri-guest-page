@@ -1,18 +1,18 @@
 {
-  "updated": "2026-11-11T18:11",
+  "updated": "2026-11-12T06:10",
   "destinations": {
     "NAP": {
       "status": "fresh",
       "origin": "MSP",
       "price": 890.0,
       "depart": "2027-03-08",
-      "found_at": "2026-11-11T18:11",
+      "found_at": "2026-11-12T06:10",
       "search_url": "https://www.google.com/travel/flights?q=Flights%20to%20NAP%20from%20FSD%20on%202027-09-15%20through%202027-09-25",
       "exact": {
         "price": 997.0,
         "outbound": "2027-09-15",
         "return": "2027-09-25",
-        "checked_at": "2026-11-11T06:07"
+        "checked_at": "2026-11-12T06:10"
       }
     },
     "FCO": {
@@ -20,13 +20,13 @@
       "origin": "ORD",
       "price": 459.0,
       "depart": "2027-07-28",
-      "found_at": "2026-11-11T18:11",
+      "found_at": "2026-11-12T06:10",
       "search_url": "https://www.google.com/travel/flights?q=Flights%20to%20FCO%20from%20FSD%20on%202027-09-15%20through%202027-09-25",
       "exact": {
-        "price": 1085.0,
+        "price": 1261.0,
         "outbound": "2027-09-15",
         "return": "2027-09-25",
-        "checked_at": "2026-11-11T06:07"
+        "checked_at": "2026-11-12T06:10"
       }
     }
   }
